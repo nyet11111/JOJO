@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>抽抽</title>
+</head>
+<body>
+  <!-- 點擊圖片觸發顯示隨機照片或跳轉 -->
+  <img id="randomImage" src="https://raw.githubusercontent.com/nyet11111/pick/7fa5861cdc7167b58343cae3323538c4cf46b4fc/%E6%8A%BD%E7%8D%8E%E5%9C%96.jpg" onclick="showRandomImage()" style="cursor: pointer;" alt="點擊圖片抽獎">
+
+  <script>
+    // 替換以下照片連結為您提供的三張照片 URL
+    var photoLinks = [
+      "https://raw.githubusercontent.com/nyet11111/PHOTO1/6f2d0705d5de9e3c3d16e6d593f548e0f8bfcb02/3.jpg",
+      "https://raw.githubusercontent.com/nyet11111/PHOTO2/467c7a399045e2c1aa5fa481ade85bb17a4a1576/1.jpg",
+      "https://raw.githubusercontent.com/nyet11111/PHOTO3/cfc866bc3838038697ca809ed66f65ee3f8c0b68/2.jpg"
+    ];
+
+    var firstClick = true;
+
+    function showRandomImage() {
+      if (firstClick) {
+        // 第一次點擊，跳轉至隨機照片連結
+        // 取得隨機索引
+        var randomIndex = Math.floor(Math.random() * photoLinks.length);
+
+        // 取得隨機照片連結
+        var randomPhotoLink = photoLinks[randomIndex];
+
+        // 跳轉至隨機照片連結
+        window.location.href = randomPhotoLink;
+
+        // 將 firstClick 設為 false，表示之後的點擊將只顯示隨機照片而不跳轉
+        firstClick = false;
+      }
+    }
+  </script>
+</body>
+</html>
